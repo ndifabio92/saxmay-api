@@ -32,7 +32,7 @@ namespace Saxmay.Controllers
         [HttpPost("assignRole")]
         public async Task<IActionResult> AssignRole(RegistrationDto dto)
         {
-            var result = await _authBusiness.AssingRole(dto.Email, dto.Role.ToUpper());
+            var result = await _authBusiness.AssingRole(dto.Email, dto.Role);
             return Ok(result);
         }
     }

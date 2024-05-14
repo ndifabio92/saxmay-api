@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Saxmay.Business.Interfaces;
 using Saxmay.Data;
 using Saxmay.Entities;
+using Saxmay.Entities.Base;
 using Saxmay.Entities.Dtos;
 
 namespace Saxmay.Business
@@ -23,16 +24,16 @@ namespace Saxmay.Business
 
         }
 
-        public async Task<bool> AssingRole(string email, string roleName)
+        public async Task<bool> AssingRole(string email, UserRole? roleName)
         {
             var user = await _dataContext.ApplicationUsers.FirstOrDefaultAsync(x => x.Email.ToLower() == email.ToLower());
-            if(user != null)
+            if(user != null && roleName != null)
             {
-                if(!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                if(!_roleManager.RoleExistsAsync(roleName.ToString()).GetAwaiter().GetResult())
                 {
-                    _roleManager.CreateAsync(new IdentityRole(roleName)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(roleName.ToString())).GetAwaiter().GetResult();
                 }
-                await _userManager.AddToRoleAsync(user, roleName);
+                await _userManager.AddToRoleAsync(user, roleName.ToString());
                 return true;
             }
             return false;
