@@ -24,8 +24,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ApplicationUser>();
 builder.Services.AddTransient<IJwtTokenGeneratorBusiness, JwtTokenGeneratorBusiness>();
 builder.Services.AddTransient<IAuthBusiness, AuthBusiness>();
+builder.Services.AddTransient<IActivityBusiness, ActivityBusiness>();
+
 
 var app = builder.Build();
 

@@ -34,5 +34,5 @@ dotnet ef database update --project Saxmay.Data/ --startup-project Saxmay.API/ -
 ### Remove Migration
 
 ```
-dotnet ef remove migrations --project Saxmay.Data/ --startup-project Saxmay.API/ --verbose
+dotnet ef migrations remove --project Saxmay.Data/ --startup-project Saxmay.API/ --verbose
 ```

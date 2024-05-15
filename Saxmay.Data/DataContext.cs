@@ -11,9 +11,15 @@ namespace Saxmay.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Activity> Activities { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Activity>()
+            .HasIndex(a => a.Name)
+            .IsUnique();
         }
     }
 }
