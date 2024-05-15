@@ -1,4 +1,5 @@
 ﻿using Saxmay.Entities;
+using Saxmay.Entities.Base;
 
 namespace Saxmay.Business.Interfaces
 {

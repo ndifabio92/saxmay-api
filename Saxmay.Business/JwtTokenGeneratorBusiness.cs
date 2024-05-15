@@ -2,7 +2,9 @@
 using Microsoft.IdentityModel.Tokens;
 using Saxmay.Business.Interfaces;
 using Saxmay.Entities;
+using Saxmay.Entities.Base;
 using Saxmay.Services.Jwt;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -22,7 +24,6 @@ namespace Saxmay.Business
             var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret);
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Email, applicationUser.Email),
                 new Claim(JwtRegisteredClaimNames.Sub, applicationUser.Id),
                 new Claim(JwtRegisteredClaimNames.Name, applicationUser.UserName),
             };

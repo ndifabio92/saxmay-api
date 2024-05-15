@@ -24,16 +24,17 @@ namespace Saxmay.Business
 
         }
 
-        public async Task<bool> AssingRole(string email, UserRole? roleName)
+        public async Task<bool> AssingRole(string email, string? roleName)
         {
             var user = await _dataContext.ApplicationUsers.FirstOrDefaultAsync(x => x.Email.ToLower() == email.ToLower());
             if(user != null && roleName != null)
             {
-                if(!_roleManager.RoleExistsAsync(roleName.ToString()).GetAwaiter().GetResult())
+                if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
                 {
-                    _roleManager.CreateAsync(new IdentityRole(roleName.ToString())).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(roleName)).GetAwaiter().GetResult();
                 }
-                await _userManager.AddToRoleAsync(user, roleName.ToString());
+
+                await _userManager.AddToRoleAsync(user, roleName);
                 return true;
             }
             return false;
@@ -50,7 +51,7 @@ namespace Saxmay.Business
             }
 
             var roles = await _userManager.GetRolesAsync(user);
-            var token = _jwtTokenGenerator.GenerateToken(user,roles);
+            var token = _jwtTokenGenerator.GenerateToken(user, roles);
             return new LoginResponseDto()
             {
                 User = new UserDto()
