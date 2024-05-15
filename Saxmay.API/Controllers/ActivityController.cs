@@ -9,7 +9,7 @@ using System.Net;
 namespace Saxmay.API.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(Policy = UserRole.ADMIN)]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     public class ActivityController : ControllerBase
     {

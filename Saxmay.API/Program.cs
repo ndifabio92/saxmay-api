@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 
 using Saxmay.Data;
 using Saxmay.Services.Jwt;
 using Saxmay.Entities;
 using Saxmay.Business.Interfaces;
 using Saxmay.Business;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Saxmay.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
