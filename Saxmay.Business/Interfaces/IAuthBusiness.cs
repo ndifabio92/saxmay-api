@@ -7,6 +7,6 @@ namespace Saxmay.Business.Interfaces
     {
         Task<UserDto> Register(RegistrationDto registrationDto);
         Task<LoginResponseDto> Login(LoginDto loginDto);
-        Task<bool> AssingRole(string email, UserRole? roleName);
+        Task<bool> AssingRole(string email, string? roleName);
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace Saxmay.Entities.Base
 {
-    public enum UserRole
+    public class UserRole
     {
-        Admin,
-        Dev,
-        Guest
+        public const string ADMIN = "ADMIN";
+        public const string DEV = "DEV";
+        public const string GUEST = "GUEST";
     }
 }

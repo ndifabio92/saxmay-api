@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Saxmay.Business.Interfaces;
 using Saxmay.Entities;
+using Saxmay.Entities.Base;
 using Saxmay.Entities.Dtos;
 using System.Net;
 
 namespace Saxmay.API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(Policy = UserRole.ADMIN)]
     [ApiController]
     public class ActivityController : ControllerBase
     {
