@@ -1,0 +1,6 @@
+@Saxmay.API_HostAddress = http://localhost:5147
+
+GET {{Saxmay.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

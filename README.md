@@ -16,3 +16,23 @@ El proyecto se construye utilizando las siguientes tecnologías:
 ## Patrón Repository
 
 Se implementa el patrón Repository para gestionar el acceso a los datos. Se definen interfaces y clases concretas para cada entidad de base de datos, lo que permite una separación clara entre la lógica de negocio y la lógica de acceso a datos.
+
+## Entity Framework Commands with Azure CLI
+
+### Add Migrations
+
+```
+dotnet ef migrations add v1.0.0 --project Saxmay.Data/ --startup-project Saxmay.API/ --verbose
+```
+
+### Apply Migration
+
+```
+dotnet ef database update --project Saxmay.Data/ --startup-project Saxmay.API/ --verbose
+```
+
+### Remove Migration
+
+```
+dotnet ef migrations remove --project Saxmay.Data/ --startup-project Saxmay.API/ --verbose
+```
